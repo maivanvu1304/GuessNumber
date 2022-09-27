@@ -1,4 +1,4 @@
-const randomNumber = Math.trunc(Math.random() * 20) + 1;
+let randomNumber = Math.trunc(Math.random() * 20) + 1;
 
 const message = document.querySelector('.message');
 let scort = 20;
@@ -44,13 +44,17 @@ checkNumber.addEventListener('click', () => {
       document.querySelector('.header').textContent = 'The Number Correct Is';
     }
   }
-  const btnAgain = document.querySelector('.again');
-  btnAgain.addEventListener('click', () => {
-    document.querySelector('.header').textContent = 'Guess My Number!';
-    scort = 20;
-    document.querySelector('body').style.backgroundColor = '#222';
-    message.textContent = 'Start guessing...';
-    document.querySelector('.guess').value = '';
-    document.querySelector('.number').textContent = '?';
-  });
+});
+
+const btnAgain = document.querySelector('.again');
+btnAgain.addEventListener('click', () => {
+  randomNumber = Math.trunc(Math.random() * 20) + 1;
+  document.querySelector('.header').textContent = 'Guess My Number!';
+  scort = 20;
+  document.querySelector('body').style.backgroundColor = '#222';
+  message.textContent = 'Start guessing...';
+  document.querySelector('.guess').value = '';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.score').textContent = scort;
+  document.querySelector('.highscore').textContent = 0;
 });
